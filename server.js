@@ -15,11 +15,21 @@ app.get('/', (req, res) => {
 });
 
 // Create the Web3 provider (for Web3.js v1.x)
+// const providerURL = `https://polygon-rpc.com`;
+// let web3;
+
+// try {
+//   web3 = new Web3(new Web3.providers.HttpProvider(providerURL));
+// } catch (error) {
+//   console.error('Error creating Web3 instance:', error);
+//   process.exit(1);
+// }
+// Correct way to initialize the Web3 instance in v1.x and above
 const providerURL = `https://polygon-rpc.com`;
 let web3;
 
 try {
-  web3 = new Web3(new Web3.providers.HttpProvider(providerURL));
+  web3 = new Web3(providerURL); // Pass provider URL directly to Web3 constructor
 } catch (error) {
   console.error('Error creating Web3 instance:', error);
   process.exit(1);
